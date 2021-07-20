@@ -24,24 +24,24 @@ public class BookDemo {
         setOfBooks.add(new Book("The Gift", author4, 44.80));
 
         Book book = setOfBooks.stream().max(Comparator.comparing(Book::getPrice)).get();
+        System.out.println("The most expensive Book: ");
         book.bookDescription();
 
         String booksOfCertainAuthor = setOfBooks.stream()
                 .filter(a -> a.getAuthor() == author3)
                 .map(Book::getTitle)
                 .collect(Collectors.joining(" "));
-        System.out.println(booksOfCertainAuthor);
+        System.out.println("All books of " + author3.toString() + " : " + booksOfCertainAuthor);
 
         List<Book> sortedBooks = setOfBooks.stream()
                 .sorted(Comparator.comparing(a -> a.getAuthor().toString()))
                 .collect(Collectors.toList());
-
+        System.out.println("All books we have for today: ");
         sortedBooks.forEach(Book::bookDescription);
 
         Double sum = setOfBooks.stream()
                 .map(Book::getPrice).mapToDouble(Double::doubleValue).sum();
-        System.out.print(sum);
-
+        System.out.print("Total price for all books: " + sum);
 
     }
 }

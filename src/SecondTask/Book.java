@@ -1,11 +1,9 @@
 package SecondTask;
 
-import FirstTask.Person;
-
 public class Book {
-    String title;
-    Author author;
-    Double price;
+    protected String title;
+    protected Author author;
+    protected Double price;
 
     public Book(String title, Author author, Double price) {
         this.title = title;
@@ -25,7 +23,7 @@ public class Book {
         return price;
     }
 
-    void bookDescription() {
+    public void bookDescription() {
         System.out.println("Title: '" + title + "'");
         author.printAuthorName();
         System.out.println("price: " + price);
